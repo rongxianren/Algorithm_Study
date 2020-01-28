@@ -1,9 +1,17 @@
 package com.rongxianren.algorithm.sort;
 
-public class SortAlgorithm {
+import com.rongxianren.algorithm.sort.impl.BubbleSort;
+import com.rongxianren.algorithm.sort.impl.QuickSort;
+import com.rongxianren.algorithm.sort.inter.Sort;
+
+public class SortAlgorithmClient {
     public static void main(String[] args) {
         int[] data = {4, 5, 6, 3, 2, 1};
-        SortUtils.bubbleSort(data);
+
+        Sort sort;
+        sort = new BubbleSort();
+        sort.sort(data);
+
         printArray(data);
     }
 

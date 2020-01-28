@@ -1,6 +1,12 @@
-package com.rongxianren.algorithm.sort;
+package com.rongxianren.algorithm.sort.impl;
 
-public class SortUtils {
+import com.rongxianren.algorithm.sort.inter.Sort;
+
+public class BubbleSort extends Sort {
+    @Override
+    public void sort(int[] data) {
+        bubbleSort(data);
+    }
 
     /**
      * 冒泡排序
@@ -36,4 +42,5 @@ public class SortUtils {
         }
         return data;
     }
+
 }
