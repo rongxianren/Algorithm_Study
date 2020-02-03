@@ -10,5 +10,7 @@ public class SearchClient {
         Search search = new BinarySearch();
         int result = search.search(data1, 8);
         System.out.println("search result is " + result);
+
+
     }
 }
