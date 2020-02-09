@@ -1,7 +1,6 @@
 package com.rongxianren.algorithm.sort;
 
-import com.rongxianren.algorithm.sort.impl.BubbleSort;
-import com.rongxianren.algorithm.sort.impl.QuickSort;
+import com.rongxianren.algorithm.sort.impl.HeapSort;
 import com.rongxianren.algorithm.sort.inter.Sort;
 
 public class SortAlgorithmClient {
@@ -9,10 +8,11 @@ public class SortAlgorithmClient {
         int[] data = {4, 5, 6, 3, 2, 1};
 
         Sort sort;
-        sort = new BubbleSort();
+        sort = new HeapSort();
         sort.sort(data);
-
         printArray(data);
+        int a = 10;
+
     }
 
     public static void printArray(int[] data) {
