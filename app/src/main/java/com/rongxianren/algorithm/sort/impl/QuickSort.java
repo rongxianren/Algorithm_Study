@@ -20,7 +20,7 @@ public class QuickSort extends Sort {
      * 那每次分区得到的两个区间都是不均等的。
      * 我们需要进行大约 n 次分区操作，才能完成快排的整个过程。
      * 每次分区我们平均要扫描大约 n/2 个元素，这种情况下，
-     * 快排的时间复杂度就从 O(nlogn) 退化成了 O(n2)
+     * 快排的时间复杂度就从 O(nlogn) 退化成了 O(n^2)
      *
      * @param data
      * @param left
