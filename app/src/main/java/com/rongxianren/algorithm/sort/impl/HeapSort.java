@@ -27,31 +27,27 @@ public class HeapSort extends Sort {
         if (data == null || data.length == 0)
             return;
         int start = (length) / 2 - 1;
+
         for (int k = start; k >= 0; k--) {
             int index = k;
-            int tempIndex = 0;
-            while (index * 2 + 1 < length) {
-                if (index * 2 + 2 < length) {
-                    if (data[index * 2 + 1] > data[index * 2 + 2]) {
-                        tempIndex = index * 2 + 1;
-                    } else {
-                        tempIndex = index * 2 + 2;
-                    }
-                } else {
-                    if (index * 2 + 1 < length) {
-                        tempIndex = index * 2 + 1;
-                    }
-
+            int tempIndex = index;
+            
+            while (true) {
+                if (index * 2 + 1 < length && data[index] < data[index * 2 + 1]) {
+                    tempIndex = index * 2 + 1;
                 }
 
-                if (data[index] < data[tempIndex]) {/// todo好像可以优化
-                    swap(data, index, tempIndex);
+                if (index * 2 + 2 < length && data[tempIndex] < data[index * 2 + 2]) {
+                    tempIndex = index * 2 + 2;
                 }
+
+                if (index == tempIndex) {
+                    break;
+                }
+                swap(data, index, tempIndex);
                 index = tempIndex;
             }
         }
-
-        printArray(data);
     }
 
     /**

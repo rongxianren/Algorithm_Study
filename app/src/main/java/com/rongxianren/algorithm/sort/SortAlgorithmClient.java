@@ -3,6 +3,8 @@ package com.rongxianren.algorithm.sort;
 import com.rongxianren.algorithm.sort.impl.HeapSort;
 import com.rongxianren.algorithm.sort.inter.Sort;
 
+import java.util.LinkedList;
+
 public class SortAlgorithmClient {
     public static void main(String[] args) {
         int[] data = {4, 5, 6, 3, 2, 1};
@@ -11,8 +13,6 @@ public class SortAlgorithmClient {
         sort = new HeapSort();
         sort.sort(data);
         printArray(data);
-        int a = 10;
-
     }
 
     public static void printArray(int[] data) {
