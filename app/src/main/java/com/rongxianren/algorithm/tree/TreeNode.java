@@ -1,6 +1,7 @@
 package com.rongxianren.algorithm.tree;
 
 import java.util.List;
+import java.util.Queue;
 
 public class TreeNode {
 
@@ -24,7 +25,7 @@ public class TreeNode {
      * @param index
      * @return
      */
-    public int buildTree(TreeNode root, int[] nodes, int index) {
+    public static int buildTree(TreeNode root, int[] nodes, int index) {
         if (root == null) return -1;
         if (Integer.MIN_VALUE == nodes[index]) {
             return index + 1;
@@ -41,14 +42,35 @@ public class TreeNode {
         return right;
     }
 
+    public static void createdBinaryTree(TreeNode root, Queue<Integer> valueQueue) {
+        //递归建树二叉树
+
+
+        int value = valueQueue.poll();
+        if (value == Integer.MIN_VALUE) {
+            return;
+        } else {
+            System.out.println("createdBinaryTree  = " + value);
+
+            root.value = value;
+
+            root.left = new TreeNode();
+            createdBinaryTree(root.left, valueQueue);
+
+            root.right = new TreeNode();
+            createdBinaryTree(root.right, valueQueue);
+        }
+    }
+
 
     /**
      * 递归模式 先序遍历
      *
      * @return
      */
-    public void traverseInPre(TreeNode root, List<Integer> values) {
-        if (root == null || root.value == Integer.MIN_VALUE)
+    public static void traverseInPre(TreeNode root, List<Integer> values) {
+        /// 这里判断根节点是通过根节点的默认value值来进行的
+        if (root.value == Integer.MIN_VALUE)
             return;
         values.add(root.value);
 
