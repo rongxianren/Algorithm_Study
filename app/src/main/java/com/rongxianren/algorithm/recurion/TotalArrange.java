@@ -6,7 +6,7 @@ package com.rongxianren.algorithm.recurion;
  */
 public class TotalArrange {
     public static void main(String[] args) {
-        int[] data = new int[6];
+        int[] data = new int[7];
         totalArrange(data, 0);
     }
 
