@@ -47,6 +47,7 @@ public class QuickSort extends Sort {
      * @param left
      * @param right
      * @return
+     *
      */
     private static int partition(int[] data, int left, int right) {
         int pivot = data[right];
