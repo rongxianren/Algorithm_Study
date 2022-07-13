@@ -3,32 +3,37 @@ package com.rongxianren.algorithm.recurion;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * 字符串全排列
+ */
 public class TotalPermutationOfString {
-	private static Set<String> sResultSet = new HashSet<String>();
-	public static void main(String[] args){
-		String testStr = "abcd";
-		totalPermutation(testStr.toCharArray(), 0);
-		for (String value : sResultSet) {
-			System.out.println(value);
-		}
-	}
 
-	private static void totalPermutation(char[] charArray, int index){
-		if( index>=charArray.length-1){
-//			System.out.println(charArray);
-			sResultSet.add(new String(charArray));
-			return;
-		}
-		for(int i= index; i<charArray.length; i++){
-			swapChar(charArray, index, i);
-			totalPermutation(charArray, index+1);
-			swapChar(charArray, i, index);
-		}
-	}
+    public static void main(String[] args) {
+        String testStr = "abcd";
+        Set<String> resultSet = new HashSet<String>();
+        totalPermutation(testStr.toCharArray(), 0, resultSet);
+        for (String value : resultSet) {
+            //有相同字符的话就要用set去重
+            //System.out.println(value);
+        }
+    }
 
-	private static void swapChar(char[] charArray, int right, int left){
-		char temp = charArray[right];
-		charArray[right] = charArray[left];
-		charArray[left] = temp;
-	}
+    private static void totalPermutation(char[] charArray, int beginIndex, Set<String> resultSet) {
+        if (beginIndex >= charArray.length) {
+            resultSet.add(new String(charArray));
+            System.out.println(charArray);
+            return;
+        }
+        for (int i = beginIndex; i < charArray.length; i++) {
+            swapChar(charArray, beginIndex, i);
+            totalPermutation(charArray, beginIndex + 1, resultSet);
+            swapChar(charArray, beginIndex, i);
+        }
+    }
+
+    private static void swapChar(char[] charArray, int right, int left) {
+        char temp = charArray[right];
+        charArray[right] = charArray[left];
+        charArray[left] = temp;
+    }
 }
