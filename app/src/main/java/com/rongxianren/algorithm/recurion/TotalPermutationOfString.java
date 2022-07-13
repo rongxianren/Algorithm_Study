@@ -9,7 +9,7 @@ import java.util.Set;
 public class TotalPermutationOfString {
 
     public static void main(String[] args) {
-        String testStr = "abcd";
+        String testStr = "12345678";
         Set<String> resultSet = new HashSet<String>();
         totalPermutation(testStr.toCharArray(), 0, resultSet);
         for (String value : resultSet) {
