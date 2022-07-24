@@ -1,14 +1,15 @@
 package com.rongxianren.algorithm.sort;
 
+import com.rongxianren.algorithm.sort.impl.HeapSort;
 import com.rongxianren.algorithm.sort.impl.QuickSort;
 import com.rongxianren.algorithm.sort.inter.Sort;
 
 public class SortAlgorithmClient {
     public static void main(String[] args) {
-        int[] data = {4, 5, 6, 3, 2, 1};
+        int[] data = {1, 1, 4, 5, 2};
 
         Sort sort;
-        sort = new QuickSort();
+        sort = new HeapSort();
         sort.sort(data);
         printArray(data);
     }

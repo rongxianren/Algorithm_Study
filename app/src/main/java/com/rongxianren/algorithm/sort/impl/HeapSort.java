@@ -31,21 +31,30 @@ public class HeapSort extends Sort {
         for (int k = start; k >= 0; k--) {
             int index = k;
             int tempIndex = index;
-            
+
             while (true) {
-                if (index * 2 + 1 < length && data[index] < data[index * 2 + 1]) {
-                    tempIndex = index * 2 + 1;
+                //left
+                int leftIndex = index * 2 + 1;
+                int leftChild = Integer.MIN_VALUE;
+                if (leftIndex < length && data[index] < data[leftIndex]) {
+                    leftChild = data[leftIndex];
+                    tempIndex = leftIndex;
                 }
 
-                if (index * 2 + 2 < length && data[tempIndex] < data[index * 2 + 2]) {
-                    tempIndex = index * 2 + 2;
+                //right
+                int rightIndex = 2 * index + 2;
+                if (rightIndex < length && data[index] < data[rightIndex] && leftChild < data[rightIndex]) {
+                    tempIndex = rightIndex;
                 }
 
+                //左右节点都小于根节点
                 if (index == tempIndex) {
                     break;
                 }
+
                 swap(data, index, tempIndex);
                 index = tempIndex;
+
             }
         }
     }
